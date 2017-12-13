@@ -28,6 +28,70 @@
   </div>
 </nav>
 
+<div class="container">
+
+<!-- PANEL DE INFORMACION -->
+<div class="panel panel-info">
+      <div class="panel-heading">Solicitudes enviadas</div>
+      <div class="panel-body">Para modificar, eliminar o responder solicitud presionar en "DETALLE"</div>
+</div>
+<!-- / PANEL DE INFORMACION -->
+
+
+<!-- TABLA SOLICITUDES -->
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Usuario / Rut</th>
+        <th>Tipo Solicitud</th>
+        <th>Descripción</th>
+        <th>Respuesta</th>
+        <th>Acción</th>
+       <!-- <th>Selecionar</th>-->
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Resumen 1</td>
+        <td>Consulta</td>
+        <td>Descripción</td>
+        <td>Resuelta</td>
+        <td class="dropdown"><a class="btn btn-default actionButton"
+          data-toggle="dropdown" href="#"> Detalle </a></td>
+        <!--<td><input type="checkbox" value=""></td>-->
+      </tr>
+      <tr>
+        <td>Resumen 2</td>
+        <td>Queja</td>
+        <td>Descripción</td>
+        <td>Resuelta</td>
+        <td class="dropdown"><a class="btn btn-default actionButton"
+          data-toggle="dropdown" href="#"> Detalle </a></td>
+        <!--<td><input type="checkbox" value=""></td>-->
+      </tr>
+      <tr>
+        <td>Resumen n</td>
+        <td>Sugerencia</td>
+        <td>Descripción</td>
+        <td>Resuelta</td>
+        <td class="dropdown"><a class="btn btn-default actionButton"
+          data-toggle="dropdown" href="#"> Detalle </a></td>
+        <!--<td><input type="checkbox" value=""></td>-->
+      </tr>
+    </tbody>
+  </table>
+<!-- / TABLA SOLICITUDES -->
+ 
+ <!--  LISTA BOTON -->
+   <ul id="contextMenu" class="dropdown-menu" role="menu">
+    <li><a tabindex="-1" href="#" class="responder">Responder</a></li>
+    <li><a tabindex="-1" href="#" class="modificar" >Modificar</a></li>
+    <li><a tabindex="-1" href="#" class="eliminar" >Eliminar</a></li>
+  </ul>
+<!-- / LISTA BOTON -->
+  
+</div>
+
 
 <!-- FOOTER --> 
 <footer class="text-center">
