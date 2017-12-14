@@ -21,7 +21,7 @@
 
 CREATE DATABASE educa_icinf;
 
-USE sistema_innovacion;
+USE educa_icinf;
 
 
 # Volcado de tabla administrador
