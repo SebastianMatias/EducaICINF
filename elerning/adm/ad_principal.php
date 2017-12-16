@@ -1,7 +1,8 @@
 <?php  
 require_once 'modulo1/modal_mauro.php';
-require 'modulo2/modal_seba.php';
-require 'modulo3/modal_roxana.php';
+require_once 'modulo2/modal_seba.php';
+//require_once 'modulo2/crearPreguntas.php';
+require_once 'modulo3/modal_roxana.php';
 ?>
 
 
@@ -54,8 +55,8 @@ require 'modulo3/modal_roxana.php';
     <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_PR">Crear</button>
       </div>
       <div class="col-lg-4 col-sm-12 text-center"><img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="../img/iconos/s_m.jpg" data-holder-rendered="true">
-        <h3>Selección multiple</h3>
-    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_SM">Crear</button>
+        <h3>Elección multiple</h3>
+    <button id="Crear" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_SM">Crear</button>
       </div>
       <div class="col-lg-4 col-sm-12 text-center"><img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="../img/iconos/t_p.jpg" data-holder-rendered="true">
         <h3>Seleccion en términos pareados</h3>
@@ -83,5 +84,16 @@ require 'modulo3/modal_roxana.php';
 
 <script src="../js/jquery-1.11.3.min.js"></script>  
 <script src="../js/bootstrap.js"></script>
+
+<!--<script>  
+       $(document).on('click', '#Crear', function() {
+        $('#myModal_SM').modal('show');
+    });
+
+    $(document).on('click', '#Crear2', function() {
+        $('#myModal_SM2').modal('show');
+    });
+</script>-->
+
 </body>
 </html>

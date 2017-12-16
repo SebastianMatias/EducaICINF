@@ -1,6 +1,6 @@
 <?php
 
-$db_host = "127.0.0.1";
+$db_host = "localhost";
 $db_name = "educa_icinf";
 $db_user = "root";
 $db_pass = "root";

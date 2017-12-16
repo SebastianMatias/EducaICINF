@@ -1,10 +1,10 @@
 <?php
-$mysqli = new mysqli("127.0.0.1", "root", "root", "educa_icinf");
+$mysqli = new mysqli("localhost", "root", "root", "educa_icinf");
 
 $user='root';
 $password='root';
 $dbname='educa_icinf';
-$host='127.0.0.1';
+$host='localhost';
 
 $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
 

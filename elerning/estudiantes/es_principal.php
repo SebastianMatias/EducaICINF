@@ -1,10 +1,18 @@
+<?php  
+//require_once 'modulo1/modal_mauro.php';
+//require_once 'modulo2/modal_seba.php';
+//require_once 'modulo2/crearPreguntas.php';
+//require_once 'modulo3/modal_roxana.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Universidad de los lagos - Estudiantes</title>
+<title>Educa-ICINF - Docente</title>
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="../css/bootstrap.css">
@@ -19,7 +27,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-        <li><a href="#">Actividades</a> </li>
+          <li><a href="#">Gestión de actividades</a> </li>
           <li><a href="datos_personales.php">Datos Personales</a> </li>
           <li><a href="../index.php">Cerrar sesión</a> </li>
         </li>
@@ -28,84 +36,64 @@
   </div>
 </nav>
 
-<div class="container">
-
-<!-- PANEL DE INFORMACION -->
-<div class="panel panel-info">
-      <div class="panel-heading">Solicitudes enviadas</div>
-      <div class="panel-body">Para modificar, eliminar o responder solicitud presionar en "DETALLE"</div>
-</div>
-<!-- / PANEL DE INFORMACION -->
-
-
-<!-- TABLA SOLICITUDES -->
-<table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Usuario / Rut</th>
-        <th>Tipo Solicitud</th>
-        <th>Descripción</th>
-        <th>Respuesta</th>
-        <th>Acción</th>
-       <!-- <th>Selecionar</th>-->
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Resumen 1</td>
-        <td>Consulta</td>
-        <td>Descripción</td>
-        <td>Resuelta</td>
-        <td class="dropdown"><a class="btn btn-default actionButton"
-          data-toggle="dropdown" href="#"> Detalle </a></td>
-        <!--<td><input type="checkbox" value=""></td>-->
-      </tr>
-      <tr>
-        <td>Resumen 2</td>
-        <td>Queja</td>
-        <td>Descripción</td>
-        <td>Resuelta</td>
-        <td class="dropdown"><a class="btn btn-default actionButton"
-          data-toggle="dropdown" href="#"> Detalle </a></td>
-        <!--<td><input type="checkbox" value=""></td>-->
-      </tr>
-      <tr>
-        <td>Resumen n</td>
-        <td>Sugerencia</td>
-        <td>Descripción</td>
-        <td>Resuelta</td>
-        <td class="dropdown"><a class="btn btn-default actionButton"
-          data-toggle="dropdown" href="#"> Detalle </a></td>
-        <!--<td><input type="checkbox" value=""></td>-->
-      </tr>
-    </tbody>
-  </table>
-<!-- / TABLA SOLICITUDES -->
- 
- <!--  LISTA BOTON -->
-   <ul id="contextMenu" class="dropdown-menu" role="menu">
-    <li><a tabindex="-1" href="#" class="responder">Responder</a></li>
-    <li><a tabindex="-1" href="#" class="modificar" >Modificar</a></li>
-    <li><a tabindex="-1" href="#" class="eliminar" >Eliminar</a></li>
-  </ul>
-<!-- / LISTA BOTON -->
-  
-</div>
-
-
+<!--  NOTICIAS DESTACADAS -->
+<section>
+  <div class="container ">
+   <div class="container-fluid-noticias">
+  <span class="label label-primary">Tipos de actividades</span> </div>
+    <div class="row">
+      <div class="col-lg-4 col-sm-12 text-center"> <img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="../img/iconos/vyf.png" data-holder-rendered="true">
+        <h3>Verdadero y falso</h3>
+    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_VF">Jugar</button>
+      </div>
+      <div class="col-lg-4 col-sm-12 text-center"><img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="../img/iconos/sinonimos.png" data-holder-rendered="true">
+        <h3>Sinónimos</h3>
+    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_sinonimos">Jugar</button>
+      </div>
+      <div class="col-lg-4 col-sm-12 text-center"><img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="../img/iconos/p_r.png" data-holder-rendered="true">
+        <h3>Pregunta - Respuesta</h3>
+    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_PR">Jugar</button>
+      </div>
+      <div class="col-lg-4 col-sm-12 text-center"><img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="../img/iconos/s_m.jpg" data-holder-rendered="true">
+        <h3>Elección multiple</h3>
+    <a href="modulo2/preguntas.php?n=1" class="btn btn-primary" role="button">Jugar</a>
+      </div>
+      <div class="col-lg-4 col-sm-12 text-center"><img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="../img/iconos/t_p.jpg" data-holder-rendered="true">
+        <h3>Seleccion en términos pareados</h3>
+    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_terminos">Jugar</button>
+      </div>
+      <div class="col-lg-4 col-sm-12 text-center"><img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="../img/iconos/crucigrama.png" data-holder-rendered="true">
+        <h3>Crucigrama</h3>
+    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_crucigrama">Jugar</button>
+      </div>
+    </div>
+   <!-- / NOTICIAS DESTACADAS -->
+</section>
+	  
 <!-- FOOTER --> 
 <footer class="text-center">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <p>Copyright © MyWebsite. All rights reserved.</p>
+        <p>Copyright © MyWebsite. Todos los derechos reservados.</p>
       </div>
     </div>
   </div>
 </footer>
 <!-- / FOOTER --> 
 
-<script src="../js/jquery-1.11.3.min.js"></script> 
+<script src="../js/jquery-1.11.3.min.js"></script>  
 <script src="../js/bootstrap.js"></script>
+
+<!--<script>  
+       $(document).on('click', '#Crear', function() {
+        $('#myModal_SM').modal('show');
+    });
+
+    $(document).on('click', '#Crear2', function() {
+        $('#myModal_SM2').modal('show');
+    });
+</script>-->
+
 </body>
 </html>
