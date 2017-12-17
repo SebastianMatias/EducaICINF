@@ -92,4 +92,5 @@ for($i=1; $i <= $numero_preguntas; $i++){
 	
 }
 header("Location: ../ad_principal.php");
+exit;
 ?>

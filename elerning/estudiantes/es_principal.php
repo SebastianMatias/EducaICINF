@@ -1,10 +1,31 @@
 <?php  
-//require_once 'modulo1/modal_mauro.php';
+require_once 'modulo2/modal_tabla.php';
+error_reporting(0);
+?>
+<?php  
 //require_once 'modulo2/modal_seba.php';
 //require_once 'modulo2/crearPreguntas.php';
 //require_once 'modulo3/modal_roxana.php';
-?>
+// Inicializar la sesión.
+// Si está usando session_name("algo"), ¡no lo olvide ahora!
+session_start();
 
+// Destruir todas las variables de sesión.
+$_SESSION = array();
+
+// Si se desea destruir la sesión completamente, borre también la cookie de sesión.
+// Nota: ¡Esto destruirá la sesión, y no la información de la sesión!
+if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 42000,
+        $params["path"], $params["domain"],
+        $params["secure"], $params["httponly"]
+    );
+}
+
+// Finalmente, destruir la sesión.
+session_destroy();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +77,8 @@
       </div>
       <div class="col-lg-4 col-sm-12 text-center"><img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="../img/iconos/s_m.jpg" data-holder-rendered="true">
         <h3>Elección multiple</h3>
-    <a href="modulo2/preguntas.php?n=1" class="btn btn-primary" role="button">Jugar</a>
+    <!--<a href="modulo2/preguntas.php?n=32" class="btn btn-primary" role="button">Jugar</a>-->
+      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_tabla">Jugar</button>
       </div>
       <div class="col-lg-4 col-sm-12 text-center"><img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="../img/iconos/t_p.jpg" data-holder-rendered="true">
         <h3>Seleccion en términos pareados</h3>
