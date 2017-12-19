@@ -1,16 +1,10 @@
 <?php
 
-$db_host = "127.0.0.1";
-$db_name = "educa_icinf";
-$db_user = "root";
-$db_pass = "";
+$host = "127.0.0.1";
+$name = "educa_icinf";
+$user = "root";
+$pass = "";
 
-try{
-	
-	$db_con = new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_pass);
-	$db_con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e){
-	echo $e->getMessage();
-}
+$db = new PDO("mysql:host=$host;dbname=$name;charset=utf8", $user, $pass);
+
 ?>

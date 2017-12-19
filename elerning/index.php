@@ -15,10 +15,10 @@
   <body>
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/bootstrap.js"></script>
-  
+
   <!-- FORMULARIO DE ACCESO -->
   <div class="container-fluid">
-	  <img src="img/logo_ulagos.png" alt="" width="226" height="98" class="logo_ulagos"/> 
+	  <img src="img/logo_ulagos.png" alt="" width="226" height="98" class="logo_ulagos"/>
 	  <img src="img/iconos/usuario.png" width="30" height="30" alt="" class="logo_usuario"/>
 	  <img src="img/iconos/contrasena.png" width="30" height="30" alt="" class="logo_contrasena"/>
 	  <form class="form-signin" method="post" id="login-form">
@@ -26,7 +26,7 @@
 		  <input name="contrasena" type="text" class="form-control contrasena" id="contrasena" placeholder="********">
 		  <button type="submit" class="btn btn-default"  name="btn-login" id="btn-login">
 		  <span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In
-   		  </button> 
+   		  </button>
 		  <div id="resp"></div>
 	  </form>
 	  <button name="registrarse" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Registrarse</button>
@@ -41,14 +41,14 @@
     <!-- MODAL -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- MODAL CONTENIDO-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Formulario Solicitud</h4>
         </div>
-        
+
         <div class="modal-body">
        	  <form method="post" id="formulario">
             	  <div class="well">1.- Rellene Formulario</div>
@@ -77,22 +77,22 @@
         		</div>
 		  </form>
         </div>
-     
+
       </div>
       <!-- / MODAL CONTENIDO -->
               <script>
 function cargar(){
 
     var url = "registrar.php";
-    $.ajax({                        
-       type: "POST",                 
-       url: url,                     
-       data: $("#formulario").serialize(), 
+    $.ajax({
+       type: "POST",
+       url: url,
+       data: $("#formulario").serialize(),
        success: function(data) {
 
-    	   
-           }            
-      
+
+           }
+
    });
 }
 </script>
@@ -108,25 +108,25 @@ if(isset($_POST['btn-login']))
 {
 	$user_email = trim($_POST['mail']);
 	$user_password = trim($_POST['contrasena']);
-	
+
 	//$password = md5($user_password);
-	
+
 	try
 	{
-		$stmt = $db_con->prepare("SELECT * From usuario u left join estudiante e on (u.`id_usuario` = e.`id_usuario`) where e.correo_personal = '$user_email'");
-		$stmt2 = $db_con->prepare("SELECT * From usuario u left join administrador a on (u.`id_usuario` = a.`id_usuario`) where a.correo_electronico = '$user_email'");
+		$stmt = $db->prepare("SELECT * From usuario u left join estudiante e on (u.`id_usuario` = e.`id_usuario`) where e.correo_personal = '$user_email'");
+		$stmt2 = $db->prepare("SELECT * From usuario u left join administrador a on (u.`id_usuario` = a.`id_usuario`) where a.correo_electronico = '$user_email'");
 		$stmt->execute();
 		$stmt2->execute();
 		$row2 = $stmt2->fetch(PDO::FETCH_ASSOC);
 		$count2 = $stmt2->rowCount();
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		$count = $stmt->rowCount();
-		if(($row['contrasena'] == $user_password) && ($row['tipo_usuario'] == 'estudiante' )){			
+		if(($row['contrasena'] == $user_password) && ($row['tipo_usuario'] == 'estudiante' )){
 			echo '
 			<script type="text/javascript">
 			window.location="./estudiantes/es_principal.php";
 			console.log(window.location);
-			</script> '; 
+			</script> ';
 			$_SESSION['user_session'] = $row['user_email'];
 		}
 		else if(($row2['contrasena'] == $user_password) && ($row2['tipo_usuario'] == 'administrador')){
@@ -139,7 +139,7 @@ if(isset($_POST['btn-login']))
 		}else{
 			echo "<script type='text/javascript'>alert('email or password aaaaadoes not exist.');</script>";
 		}
-		
+
 	}
 	catch(PDOException $e){
 		echo $e->getMessage();
@@ -148,10 +148,4 @@ if(isset($_POST['btn-login']))
 
 ?>
 </body>
-</html> 
-
-
-
-
-
-
+</html>
