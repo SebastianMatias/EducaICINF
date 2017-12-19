@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL ^ E_DEPRECATED);
+error_reporting(0);
 $nombre_cuestionario = $_POST["nombre_cuestionario"];
 $numero_preguntas = $_POST["numero_preguntas"];
 require_once 'BDconect.php';
@@ -91,6 +91,7 @@ for($i=1; $i <= $numero_preguntas; $i++){
 	
 	
 }
+echo "Cuestionario guardado";
 header("Location: ../ad_principal.php");
 exit;
 ?>

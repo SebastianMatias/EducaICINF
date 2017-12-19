@@ -63,7 +63,7 @@
 			<form method="post" action="proceso.php">
 				<ul class="eleciones">
 					<?php while($row = $elecciones->fetch_assoc()): ?>
-					<li><input name="eleccion" type="radio" value="<?php echo $row['id_eleccion'];?>" /><?php echo $row['id_eleccion'];?><?php echo $row['nombre_eleccion']; ?></li>
+					<li><input name="eleccion" type="radio" value="<?php echo $row['id_eleccion'];?>" /><?php echo $row['nombre_eleccion']; ?></li>
 					<?php endwhile; ?>
 				</ul>
 				<input type="submit" value="Siguiente"/>

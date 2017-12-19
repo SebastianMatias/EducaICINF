@@ -2,18 +2,12 @@
 
 include 'BDconect.php';
 $sql = "SELECT DISTINCT
-cuestionario.id_cuestionario,
-cuestionario.nombre_cuestionario,
-cuestionario.fecha,
-Min(pregunta.id_pregunta) AS min_pregunta
+cuestionario_pr.id_cuestionario,
+cuestionario_pr.nombre_cuestionario,
+cuestionario_pr.fecha
 FROM
-cuestionario
-INNER JOIN pregunta ON pregunta.id_cuestionario = cuestionario.id_cuestionario
-INNER JOIN eleccion ON eleccion.id_pregunta = pregunta.id_pregunta
-GROUP BY
-cuestionario.id_cuestionario,
-cuestionario.nombre_cuestionario,
-cuestionario.fecha";
+cuestionario_pr
+INNER JOIN pregunta_pr ON pregunta_pr.id_cuestionario = cuestionario_pr.id_cuestionario";
 
 $stmt = $db->prepare($sql);
 $stmt->execute();
@@ -48,14 +42,14 @@ $result2 = $stmt->fetchAll();
 
 
 <!-- MODAL -->
-<div class="modal fade" id="myModal_tabla" role="dialog">
+<div class="modal fade" id="myModal_tablaPR" role="dialog">
     <div class="modal-dialog">
     
       <!-- MODAL CONTENIDO-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Eleccion Multiple</h4>
+          <h4 class="modal-title">Pregunta Respuesta</h4>
         </div>
         
         <div class="modal-body">
@@ -85,7 +79,7 @@ $result2 = $stmt->fetchAll();
 						<td><?php echo $result[$i]['id_cuestionario']; ?></td>
 						<td><?php echo $result[$i]['nombre_cuestionario']; ?></td>
 						<td><?php echo $result[$i]['fecha']; ?></td>
-						<td><a class="btn btn-default actionButton" data-id=<?php echo $result[$i]['min_pregunta']; ?> onclick="javascript:respuesta($(this).data('id'));"> Responder </a></td>
+						<td><a class="btn btn-default actionButton" data-id=<?php echo $result[$i]['id_cuestionario']; ?> onclick="javascript:respuesta($(this).data('id'));"> Ver </a></td>
 					  </tr>
 					  <?php  endfor; ?>
 					</tbody>
@@ -109,14 +103,14 @@ $result2 = $stmt->fetchAll();
 <script>
 function respuesta(id){
 
-	var url = "modulo2/preguntas.php?n=" + id;
+	var url = "modulo2/preguntasPR.php?n=" + id;
     $.ajax({
 		type: "GET",
 		url: url,
 		success: function(data) {
 			console.log(data);
 			 //alert(data);
-			 location.href='modulo2/preguntas.php?n=' + id;
+			 location.href='modulo2/preguntasPR.php?n=' + id;
 			/*$(".modal-body2").html(data);
 			$('#myModal2').modal({
 				keyboard: true
